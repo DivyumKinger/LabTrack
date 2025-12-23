@@ -69,6 +69,15 @@ io.on('connection', (socket) => {
 
 const { ConnectDatabase } = require("./database/databaseConnector");
 
+// Allowed origins for CORS. Extend with your deployed frontend URL if needed.
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://localhost:5173",
+  "http://localhost:3000",
+  "https://localhost:3000",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
 const booksRouter = require("./routes/bookRoutes");
 const bookCategoryRouter = require("./routes/bookCategoryRoutes");
 const booksRouterLimitSkip = require("./routes/bookRoutesLimitSkip");
@@ -121,6 +130,18 @@ app.use(express.json());
 
 // making uploads folder globally accessable through static routing
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// Serve built frontend (for Elastic Beanstalk / single-host deploys)
+// Placed BEFORE API routes to ensure static files are served efficiently
+const clientBuildPath = path.join(__dirname, "..", "frontend", "dist");
+console.log("Checking Client Build Path:", clientBuildPath);
+console.log("Does it exist?", fs.existsSync(clientBuildPath));
+
+if (fs.existsSync(clientBuildPath)) {
+  app.use(express.static(clientBuildPath));
+} else {
+  console.log("Client build path not found. Frontend will not be served.");
+}
 
 // Middleware to attach Socket.IO and user map to requests
 app.use((req, res, next) => {
@@ -206,10 +227,8 @@ app.get("/api/algotest", algoTest);
 const QueryRouter = require("./utils/MongoDbQuery");
 app.use("/api/v1/query", QueryRouter);
 
-// Serve built frontend (for Elastic Beanstalk / single-host deploys)
-const clientBuildPath = path.join(__dirname, "..", "frontend", "dist");
+// Serve index.html for any unknown routes (Client-side routing)
 if (fs.existsSync(clientBuildPath)) {
-  app.use(express.static(clientBuildPath));
   app.get("*", (req, res) => {
     res.sendFile(path.join(clientBuildPath, "index.html"));
   });
