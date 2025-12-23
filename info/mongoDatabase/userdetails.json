@@ -1,0 +1,50 @@
+[
+  {
+    "_id": { "$oid": "64b89fff084897052e79d09f" },
+    "username": "admin",
+    "email": "admin@gmail.com",
+    "emailVerified": true,
+    "phone": "9847612345",
+    "userType": "admin_user",
+    "totalRequestedBooks": 0,
+    "totalAcceptedBooks": 0,
+    "password": "$2b$10$ByhWWpoVPEeZHsuZZsY/2eqNJAqZJI7I4XsGfJL1k7KLaZC5aaKrG",
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "64b8a000084897052e79d0a0" },
+    "username": "Avitendra",
+    "email": "avitendra@gmail.com",
+    "emailVerified": true,
+    "phone": "9876543210",
+    "userType": "regular_user",
+    "totalRequestedBooks": 0,
+    "totalAcceptedBooks": 0,
+    "password": "$2b$12$uHVxhqVFFM.05NgW47OnX.aLBoKx6RG5bipSDlQByDOXM4oY758ZW",
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "64b8a001084897052e79d0a1" },
+    "username": "Divyum",
+    "email": "divyum@gmail.com",
+    "emailVerified": true,
+    "phone": "9876501234",
+    "userType": "regular_user",
+    "totalRequestedBooks": 0,
+    "totalAcceptedBooks": 0,
+    "password": "$2b$12$jFYQuH7cl3MvZXYji8itA.bA1uiMkZ2pTSpqCIJXZYT4pPThU9HoW",
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "64b8a002084897052e79d0a2" },
+    "username": "Shrishti",
+    "email": "shrishti@gmail.com",
+    "emailVerified": true,
+    "phone": "9876512345",
+    "userType": "regular_user",
+    "totalRequestedBooks": 0,
+    "totalAcceptedBooks": 0,
+    "password": "$2b$12$RdzObKToEjTAlqvKcieWsuC7EchmHLvQOBKYPq1FCGqpxgN8JwiEy",
+    "__v": 0
+  }
+]

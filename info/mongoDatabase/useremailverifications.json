@@ -1,0 +1,38 @@
+[
+  {
+    "_id": { "$oid": "64b89fff084897052e79d0a1" },
+    "userId": "64b89fff084897052e79d09f",
+    "userEmail": "admin@gmail.com",
+    "otpCode": "$2b$10$QglnOTcWrteePymMVHMX..7mqkfEbpD73NxjyZw88kUqdFM35Kfwi",
+    "createdAt": { "$date": "2023-07-20T02:46:23.198Z" },
+    "expiresAt": { "$date": "2023-07-20T02:47:23.198Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "64b8a010084897052e79d0b0" },
+    "userId": "64b8a000084897052e79d0a0",
+    "userEmail": "avitendra@gmail.com",
+    "otpCode": "$2b$10$AbC1234567abcdefGhijklmnopQRstuVwxyzABCD1234567Efgh",
+    "createdAt": { "$date": "2025-09-24T05:00:00.000Z" },
+    "expiresAt": { "$date": "2025-09-24T05:01:00.000Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "64b8a011084897052e79d0b1" },
+    "userId": "64b8a001084897052e79d0a1",
+    "userEmail": "divyum@gmail.com",
+    "otpCode": "$2b$10$XyZ987654321abcdefGhijklmnopQRstuVwxyzABCD9876543XyZ",
+    "createdAt": { "$date": "2025-09-24T05:00:00.000Z" },
+    "expiresAt": { "$date": "2025-09-24T05:01:00.000Z" },
+    "__v": 0
+  },
+  {
+    "_id": { "$oid": "64b8a012084897052e79d0b2" },
+    "userId": "64b8a002084897052e79d0a2",
+    "userEmail": "shrishti@gmail.com",
+    "otpCode": "$2b$10$LmN4567890abcdefGhijklmnopQRstuVwxyzABCD4567890LmN",
+    "createdAt": { "$date": "2025-09-24T05:00:00.000Z" },
+    "expiresAt": { "$date": "2025-09-24T05:01:00.000Z" },
+    "__v": 0
+  }
+]

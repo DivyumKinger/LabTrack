@@ -1,0 +1,159 @@
+{
+    "info": {
+        "_postman_id": "ebf8d975-363f-40b3-b628-659726a9ea2d",
+        "name": "Library (Simplified)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "User Authentication",
+            "item": [
+                {
+                    "name": "Create New User (Signup)",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"username\": \"testuser\", \r\n    \"email\" : \"testuser@example.com\" ,\r\n    \"phone\" : \"1234567890\" ,\r\n    \"password\" : \"Password123@\"\r\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "localhost:5000/api/v1/signup",
+                            "host": ["localhost"],
+                            "port": "5000",
+                            "path": ["api", "v1", "signup"]
+                        },
+                        "description": "Create a new user. Change the email to ensure it's unique."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login as User",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"email\": \"testuser@example.com\",\r\n    \"password\": \"Password123@\"\r\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "localhost:5000/api/v1/login",
+                            "host": ["localhost"],
+                            "port": "5000",
+                            "path": ["api", "v1", "login"]
+                        },
+                        "description": "Login as a user to receive authentication cookies. Use the credentials you signed up with."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "localhost:5000/api/v1/logout",
+                            "host": ["localhost"],
+                            "port": "5000",
+                            "path": ["api", "v1", "logout"]
+                        },
+                        "description": "Logs the user out by clearing authentication cookies. Requires you to be logged in first."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Books (Public)",
+            "item": [
+                {
+                    "name": "Get All Books",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "localhost:5000/api/v1/books",
+                            "host": ["localhost"],
+                            "port": "5000",
+                            "path": ["api", "v1", "books"]
+                        },
+                        "description": "Get a list of all books in the library. Does not require authentication."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Popular Books",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "localhost:5000/api/v1/popularBooks",
+                            "host": ["localhost"],
+                            "port": "5000",
+                            "path": ["api", "v1", "popularBooks"]
+                        },
+                        "description": "Get a list of popular books. Does not require authentication."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "User Actions (Authentication Required)",
+            "item": [
+                {
+                    "name": "Get User Profile",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "localhost:5000/api/v1/users",
+                            "host": ["localhost"],
+                            "port": "5000",
+                            "path": ["api", "v1", "users"]
+                        },
+                        "description": "Requires Authentication. Run the 'Login as User' request first. This will fetch the profile of the currently logged-in user."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update User Phone (PATCH)",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"phone\": \"9876543210\"\r\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "localhost:5000/api/v1/users",
+                            "host": ["localhost"],
+                            "port": "5000",
+                            "path": ["api", "v1", "users"]
+                        },
+                        "description": "Requires Authentication. Run the 'Login as User' request first. This will update the phone number of the currently logged-in user."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Recommended Books",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "localhost:5000/api/v1/recommendedBooks",
+                            "host": ["localhost"],
+                            "port": "5000",
+                            "path": ["api", "v1", "recommendedBooks"]
+                        },
+                        "description": "Requires Authentication. Run the 'Login as User' request first. Gets book recommendations for the logged-in user."
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}
