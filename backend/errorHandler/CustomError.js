@@ -5,7 +5,8 @@ const CustomError = (err, req, res, next) => {
       .json({ status: 'fail', message: `Email already exists` })
   }
 
-  res.status(StatusCodes.BAD_REQUEST).json({ status: 'fail', message: err })
+  const msg = err.message || 'Something went wrong';
+  res.status(StatusCodes.BAD_REQUEST).json({ status: 'fail', message: msg })
 }
 
 module.exports = CustomError
