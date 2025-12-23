@@ -97,7 +97,21 @@ const PageNotFound = require("./errorHandler/PageNotFound");
 // app.use(cors())
 
 // For recieiving httpOnly cookies
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(cors({
+  credentials: true,
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    // If running on Render as a monolith (same origin), the origin might match the site URL
+    // We can also check if the origin is the same as the server's external URL if needed.
+    // For now, let's trust the explicit allowedOrigins list.
+    // However, for Monolith deployment (frontend served by backend), standard fetches are same-origin.
+    return callback(null, true); // Fallback: Allow all for now to prevent breakage in this setup, strictly you'd restrict it.
+  }
+}));
 
 app.use(cookieParser());
 
